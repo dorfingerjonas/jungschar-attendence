@@ -1,0 +1,59 @@
+body {
+    height: 90vh;
+    overflow: hidden;
+    padding: 5vh 0;
+}
+
+#logInWrapper {
+    width: 30%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#logInWrapper input {
+    width: 70%;
+    margin: 1vh 0;
+    padding: 1.25vh 1vw;
+    font-size: 1.1em;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid lightgray;
+    transition: border-color 400ms ease-in-out;
+}
+
+#logInWrapper input:focus {
+    border-color: #03a87c;
+}
+
+#logInWrapper #logInBtn {
+    border-radius: 3px;
+    outline: none;
+    padding: 1.25vmin 2vmin;
+    font-size: 1.2em;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    background: #03a87c;
+    color: white;
+    border: #03a87c;
+    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    letter-spacing: .35px;
+    user-select: none;
+    cursor: pointer;
+}
+
+#usernameFDB, #passwordFDB {
+    color: red;
+    width: 70%;
+}
+
+.errorInput {
+    border-color: red !important;
+}
+
+.errorInput:focus {
+    border-color: red !important;
+}

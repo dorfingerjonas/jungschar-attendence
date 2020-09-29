@@ -49,6 +49,12 @@ class ChildrenRepository {
     async getAll() {
         return JSON.parse(await promisify(fs.readFile)('./data/children.json', 'utf8'));
     }
+
+    async getChildrenByGroupId(groupId) {
+        const children = await this.getAll();
+
+        return children.filter(r => r.groupId === parseInt(groupId));
+    }
 }
 
 module.exports = ChildrenRepository;

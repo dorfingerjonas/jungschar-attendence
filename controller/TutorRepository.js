@@ -5,7 +5,7 @@ class TutorRepository {
     async add(tutor) {
         const currentFile = await this.getAll();
 
-        tutor.id = Date.now();
+        tutor.tutorId = Date.now();
 
         currentFile.push(tutor);
 
@@ -19,7 +19,7 @@ class TutorRepository {
     async update(tutor) {
         const tutors = await this.getAll();
 
-        tutors[tutors.findIndex(r => r.id === tutor.id)] = tutor;
+        tutors[tutors.findIndex(r => r.tutorId === tutor.tutorId)] = tutor;
 
         fs.writeFile('./data/tutors.json', JSON.stringify(tutors), err => {
             if (err) {
@@ -31,7 +31,7 @@ class TutorRepository {
     async delete(tutor) {
         const currentFile = await this.getAll();
 
-        fs.writeFile('./data/tutors.json', JSON.stringify(currentFile.filter(r => r.id !== tutor.id)), err => {
+        fs.writeFile('./data/tutors.json', JSON.stringify(currentFile.filter(r => r.tutorId !== tutor.tutorId)), err => {
             if (err) {
                 console.error(err);
             }

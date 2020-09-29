@@ -1,0 +1,35 @@
+.childrenWrapper, .tutorWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.childrenWrapper .child, .tutorWrapper .tutor {
+    width: 40%;
+    margin: 2vh 0;
+    padding: 1.5vh 1vw;
+    border-radius: 7px;
+    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    border-bottom: 5px solid #03a87c;
+    cursor: pointer;
+    transition: border-color 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+.childrenWrapper .absent, .tutorWrapper .absent {
+    border-color: #db3232 !important;
+    opacity: .5;
+}
+
+.saveBtn {
+    width: 100%;
+    margin: 4vh 0;
+    padding: 2vh 2vw;
+    color: #fff;
+    background: #485b6e;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    user-select: none;
+    cursor: pointer;
+}

@@ -14,7 +14,20 @@ body {
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    overflow: hidden scroll;
+}
+
+.hide {
+  display: none !important;
+}
+
+#contentWrapper {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }

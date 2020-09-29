@@ -35,6 +35,10 @@ io.on('connection', socket => {
     });
 });
 
+schedule.scheduleJob('0 0 18 * * 5', async () => {
+    reqHandler.sendEmail(await reqHandler.getLessons(), await reqHandler.getGroups(), await reqHandler.getChildren(), await reqHandler.getTutors());
+});
+
 http.listen(3000, () => {
     console.log('http://localhost:3000/');
 });

@@ -20,6 +20,10 @@ class RequestHandler {
         return await childrenRepo.getChildrenByGroupId(groupId);
     }
 
+    async getTutors() {
+        return await tutorRepo.getAll();
+    }
+
     }
 }
 

@@ -14,8 +14,24 @@ app.use(express.static('public/style'));
 app.use(express.static('public/script'));
 
 io.on('connection', socket => {
-    socket.on('login data', async data => {
-        socket.emit('login validation', await reqHandler.validateCredentials(data));
+    socket.on('req:groups', async () => {
+        socket.emit('res:groups', await reqHandler.getGroups());
+    });
+
+    socket.on('req:children', async groupId => {
+        socket.emit('res:children', await reqHandler.getChildrenByGroupId(groupId));
+    });
+
+    socket.on('req:tutors', async () => {
+        socket.emit('res:tutors', await reqHandler.getTutors());
+    });
+
+    socket.on('data:lesson', lesson => {
+        reqHandler.saveLesson(lesson);
+    });
+
+    socket.on('req:lessonByGroupId', async groupId => {
+        socket.emit('res:lessonByGroupId', await reqHandler.getLessonByGroupId(groupId));
     });
 });
 

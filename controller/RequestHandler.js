@@ -12,8 +12,6 @@ const lessonsRepo = new LessonsRepository();
 const emailController = new EmailController();
 
 class RequestHandler {
-    async validateCredentials(data) {
-        return await userRepo.validateCredentials(data);
     }
 }
 

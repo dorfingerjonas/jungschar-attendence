@@ -2,10 +2,14 @@ const fs = require('fs');
 const { promisify } = require('util');
 const ChildrenRepository = require('./ChildrenRepository');
 const TutorRepository = require('./TutorRepository');
-const UserRepository = require('./UserRepository');
+const GroupsRepository = require('./GroupsRepository');
+const LessonsRepository = require('./LessonsRepository');
+const EmailController = require('./EmailController');
 const childrenRepo = new ChildrenRepository();
 const tutorRepo = new TutorRepository();
-const userRepo = new UserRepository();
+const groupsRepo = new GroupsRepository();
+const lessonsRepo = new LessonsRepository();
+const emailController = new EmailController();
 
 class RequestHandler {
     async validateCredentials(data) {

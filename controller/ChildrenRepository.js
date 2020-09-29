@@ -5,7 +5,7 @@ class ChildrenRepository {
     async add(child) {
         const currentFile = await this.getAll();
 
-        child.id = Date.now();
+        child.childId = Date.now();
 
         currentFile.push(child);
 
@@ -19,7 +19,7 @@ class ChildrenRepository {
     async update(child) {
         const children = await this.getAll();
 
-        children[children.findIndex(r => r.id === child.id)] = child;
+        children[children.findIndex(r => r.childId === child.childId)] = child;
 
         fs.writeFile('./data/children.json', JSON.stringify(children), err => {
             if (err) {
@@ -31,7 +31,7 @@ class ChildrenRepository {
     async delete(child) {
         const currentFile = await this.getAll();
 
-        fs.writeFile('./data/children.json', JSON.stringify(currentFile.filter(r => r.id !== child.id)), err => {
+        fs.writeFile('./data/children.json', JSON.stringify(currentFile.filter(r => r.childId !== child.childId)), err => {
             if (err) {
                 console.error(err);
             }

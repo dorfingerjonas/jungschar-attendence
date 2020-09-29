@@ -28,6 +28,18 @@ class RequestHandler {
         return await childrenRepo.getAll();
     }
 
+    async saveLesson(lesson) {
+        const lessons = await lessonsRepo.getAll();
+        const duplicate = lessons.filter(l => l.groupId === lesson.groupId);
+
+        if (duplicate.length === 0) {
+            lessonsRepo.add(lesson);
+        } else if (duplicate.length > 0) {
+            lesson.lessonId = duplicate[0].lessonId;
+            lessonsRepo.update(lesson);
+        }
+    }
+
     }
 }
 

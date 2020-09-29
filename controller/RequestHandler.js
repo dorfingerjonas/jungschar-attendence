@@ -12,6 +12,9 @@ const lessonsRepo = new LessonsRepository();
 const emailController = new EmailController();
 
 class RequestHandler {
+    async getGroups() {
+        return await groupsRepo.getAll();
+    }
     }
 }
 

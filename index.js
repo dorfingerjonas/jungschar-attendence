@@ -3,7 +3,6 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const schedule = require('node-schedule');
-const fs = require('fs');
 
 const RequestHandler = require('./controller/RequestHandler');
 const reqHandler = new RequestHandler();

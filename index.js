@@ -12,6 +12,7 @@ app.use(express.static('public/font'));
 app.use(express.static('public/icons'));
 app.use(express.static('public/style'));
 app.use(express.static('public/script'));
+app.use(express.static('public/icons'));
 
 io.on('connection', socket => {
     socket.on('req:groups', async () => {

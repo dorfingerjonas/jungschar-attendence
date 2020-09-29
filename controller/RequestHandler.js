@@ -44,6 +44,10 @@ class RequestHandler {
         return await lessonsRepo.getLessonsByGroupId(groupId);
     }
 
+    async getLessons() {
+        return await lessonsRepo.getAll();
+    }
+
     }
 }
 

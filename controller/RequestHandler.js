@@ -48,6 +48,8 @@ class RequestHandler {
         return await lessonsRepo.getAll();
     }
 
+    async sendEmail(lessons, groups, children, tutors) {
+        emailController.sendEmail(lessons, groups, children, tutors);
     }
 }
 

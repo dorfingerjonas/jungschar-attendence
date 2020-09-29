@@ -15,6 +15,11 @@ class RequestHandler {
     async getGroups() {
         return await groupsRepo.getAll();
     }
+
+    async getChildrenByGroupId(groupId) {
+        return await childrenRepo.getChildrenByGroupId(groupId);
+    }
+
     }
 }
 

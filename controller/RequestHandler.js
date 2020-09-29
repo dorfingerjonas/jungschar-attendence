@@ -24,6 +24,10 @@ class RequestHandler {
         return await tutorRepo.getAll();
     }
 
+    async getChildren() {
+        return await childrenRepo.getAll();
+    }
+
     }
 }
 

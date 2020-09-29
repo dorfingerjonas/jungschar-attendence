@@ -40,6 +40,10 @@ class RequestHandler {
         }
     }
 
+    async getLessonByGroupId(groupId) {
+        return await lessonsRepo.getLessonsByGroupId(groupId);
+    }
+
     }
 }
 

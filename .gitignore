@@ -284,3 +284,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,node,jetbrains
+
+#backup files
+backup/
+
+#data
+data/

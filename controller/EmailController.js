@@ -3,7 +3,7 @@ const credentials = require('../data/credentials.json');
 
 class EmailController {
     async sendEmail(lessons, groups, children, tutors) {
-        nodeMailer.createTransport({
+        return nodeMailer.createTransport({
             host: 'mail.gmx.com',
             port: 587,
             debug: true,

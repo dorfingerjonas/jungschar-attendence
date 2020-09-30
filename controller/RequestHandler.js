@@ -48,8 +48,29 @@ class RequestHandler {
         return await lessonsRepo.getAll();
     }
 
-    async sendEmail(lessons, groups, children, tutors) {
-        emailController.sendEmail(lessons, groups, children, tutors);
+    async createBackup() {
+        const localtime = new Date();
+        const lessons = await this.getLessons();
+        const groups = await this.getGroups();
+        const children = await this.getChildren();
+        const tutors = await this.getTutors();
+        
+        const response = await emailController.sendEmail(lessons, groups, children, tutors) || {};
+        const date = `${localtime.getFullYear()}-${('0' + (localtime.getMonth() + 1)).slice(-2)}-${('0' + localtime.getDate()).slice(-2)}`;
+
+        if (response !== undefined) {
+            if (response.rejected.length === 0) {
+                try {
+                    fs.readdirSync('./backup');
+                } catch (err) {
+                    fs.mkdirSync('./backup');
+                }
+
+                fs.copyFile('./data/lessons.json', `./backup/jungschar-attendence_${date}.json`, fs.constants.COPYFILE_FICLONE, () => {
+                    lessonsRepo.deleteAll();
+                });
+            }
+        }
     }
 }
 

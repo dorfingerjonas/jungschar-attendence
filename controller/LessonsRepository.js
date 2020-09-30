@@ -12,6 +12,9 @@ class LessonsRepository {
         fs.writeFile('./data/lessons.json', JSON.stringify(currentFile), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }
@@ -24,6 +27,9 @@ class LessonsRepository {
         fs.writeFile('./data/lessons.json', JSON.stringify(lessons), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }

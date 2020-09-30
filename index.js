@@ -14,6 +14,8 @@ app.use(express.static('public/style'));
 app.use(express.static('public/script'));
 app.use(express.static('public/icons'));
 
+let isLocked = false;
+
 io.on('connection', socket => {
     socket.on('req:groups', async () => {
         socket.emit('res:groups', await reqHandler.getGroups());
@@ -28,7 +30,14 @@ io.on('connection', socket => {
     });
 
     socket.on('data:lesson', lesson => {
-        reqHandler.saveLesson(lesson);
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.saveLesson(lesson);
+                isLocked = false;
+                clearInterval(interval);
+            }
+        }, 10);
     });
 
     socket.on('req:lessonByGroupId', async groupId => {

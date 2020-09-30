@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { promisify } = require('util');
 const ChildrenRepository = require('./ChildrenRepository');
 const TutorRepository = require('./TutorRepository');
 const GroupsRepository = require('./GroupsRepository');
@@ -33,10 +32,10 @@ class RequestHandler {
         const duplicate = lessons.filter(l => l.groupId === lesson.groupId);
 
         if (duplicate.length === 0) {
-            lessonsRepo.add(lesson);
+            return await lessonsRepo.add(lesson);
         } else if (duplicate.length > 0) {
             lesson.lessonId = duplicate[0].lessonId;
-            lessonsRepo.update(lesson);
+            return await lessonsRepo.update(lesson);
         }
     }
 

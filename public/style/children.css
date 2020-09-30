@@ -22,9 +22,9 @@
 }
 
 .saveBtn {
-    width: 100%;
+    width: 97%;
     margin: 4vh 0;
-    padding: 2vh 2vw;
+    padding: 2vh 2%;
     color: #fff;
     background: #485b6e;
     border-radius: 7px;
@@ -32,4 +32,18 @@
     box-shadow: 1px 1px 9px 0px #dbdbdb;
     user-select: none;
     cursor: pointer;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .childrenWrapper, .tutorWrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .childrenWrapper .child, .tutorWrapper .tutor {
+        width: 92%;
+        padding: 2vh 4%;
+    }
 }

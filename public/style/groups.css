@@ -25,3 +25,14 @@
     margin: 0 1vw 0 0;
     user-select: none;
 }
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .group {
+        width: 100%;
+    }
+
+    .group .groupRow img {
+        width: 5vw;
+        margin: 0 3vw;
+    }
+}

@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
     const socket = getSocket();
     const parent = document.getElementById('contentWrapper');
 
-    socket.on('res:groups', groups => {
+    socket.on('res:group-groups', groups => {
         for (const group of groups) {
             const newGroup = document.createElement('div');
             const name = document.createElement('div');
@@ -35,5 +35,20 @@ window.addEventListener('load', () => {
             newGroup.appendChild(location);
             parent.appendChild(newGroup);
         }
+
+        const buttonWrapper = document.createElement('div');
+        const manageBtn = document.createElement('div');
+
+        manageBtn.textContent = 'Inhalte verwalten';
+
+        manageBtn.addEventListener('click', () => {
+            window.location.href = `${window.location.origin}/edit`;
+        });
+
+        buttonWrapper.classList.add('buttonWrapper');
+        manageBtn.classList.add('button');
+
+        buttonWrapper.appendChild(manageBtn);
+        parent.appendChild(buttonWrapper);
     });
 });

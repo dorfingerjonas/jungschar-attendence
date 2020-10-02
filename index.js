@@ -18,16 +18,16 @@ app.use(express.static('public/icons'));
 let isLocked = false;
 
 io.on('connection', socket => {
-    socket.on('req:groups', async () => {
-        socket.emit('res:groups', await reqHandler.getGroups());
+    socket.on('req:groups', async prefix => {
+        socket.emit(`res:${prefix}-groups`, await reqHandler.getGroups());
     });
 
     socket.on('req:children', async groupId => {
         socket.emit('res:children', await reqHandler.getChildrenByGroupId(groupId));
     });
 
-    socket.on('req:tutors', async () => {
-        socket.emit('res:tutors', await reqHandler.getTutors());
+    socket.on('req:tutors', async prefix => {
+        socket.emit(`res:${prefix}-tutors`, await reqHandler.getTutors());
     });
 
     socket.on('data:lesson', lesson => {
@@ -43,6 +43,10 @@ io.on('connection', socket => {
 
     socket.on('req:lessonByGroupId', async groupId => {
         socket.emit('res:lessonByGroupId', await reqHandler.getLessonByGroupId(groupId));
+    });
+
+    socket.on('req:children', async prefix => {
+        socket.emit(`res:${prefix}-children`, await reqHandler.getChildren());
     });
 });
 

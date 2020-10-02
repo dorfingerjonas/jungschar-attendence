@@ -71,6 +71,42 @@ class RequestHandler {
             }
         }
     }
+
+    async updateChild(child) {
+        return await childrenRepo.update(child);
+    }
+
+    async updateTutor(tutor) {
+        return await tutorRepo.update(tutor);
+    }
+
+    async updateGroup(group) {
+        return await groupsRepo.update(group);
+    }
+
+    async addChild(child) {
+        return await childrenRepo.add(child);
+    }
+
+    async addTutor(tutor) {
+        return await tutorRepo.add(tutor);
+    }
+
+    async addGroup(group) {
+        return await groupsRepo.add(group);
+    }
+
+    async deleteChild(child) {
+        return await childrenRepo.delete(child);
+    }
+
+    async deleteTutor(tutor) {
+        return await tutorRepo.delete(tutor);
+    }
+
+    async deleteGroup(group) {
+        return await groupsRepo.delete(group);
+    }
 }
 
 module.exports = RequestHandler;

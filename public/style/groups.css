@@ -26,6 +26,26 @@
     user-select: none;
 }
 
+.buttonWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    width: 97%;
+    margin: 4vh 0;
+    padding: 2vh 2%;
+    color: #fff;
+    background: #485b6e;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    user-select: none;
+    cursor: pointer;
+}
+
 @media screen and (max-aspect-ratio: 1/1) {
     .group {
         width: 100%;

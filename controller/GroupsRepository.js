@@ -12,6 +12,9 @@ class GroupsRepository {
         fs.writeFile('./data/groups.json', JSON.stringify(currentFile), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }
@@ -24,6 +27,9 @@ class GroupsRepository {
         fs.writeFile('./data/groups.json', JSON.stringify(groups), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }
@@ -34,6 +40,9 @@ class GroupsRepository {
         fs.writeFile('./data/groups.json', JSON.stringify(currentFile.filter(r => r.groupId !== group.groupId)), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }

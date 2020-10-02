@@ -12,6 +12,9 @@ class ChildrenRepository {
         fs.writeFile('./data/children.json', JSON.stringify(currentFile), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }
@@ -24,6 +27,9 @@ class ChildrenRepository {
         fs.writeFile('./data/children.json', JSON.stringify(children), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }
@@ -34,6 +40,9 @@ class ChildrenRepository {
         fs.writeFile('./data/children.json', JSON.stringify(currentFile.filter(r => r.childId !== child.childId)), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }

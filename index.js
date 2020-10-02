@@ -8,6 +8,7 @@ const RequestHandler = require('./controller/RequestHandler');
 const reqHandler = new RequestHandler();
 
 app.use(express.static('public'));
+app.use(express.static('public/edit'));
 app.use(express.static('public/font'));
 app.use(express.static('public/icons'));
 app.use(express.static('public/style'));

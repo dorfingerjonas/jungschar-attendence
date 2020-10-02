@@ -30,32 +30,34 @@ function createMessageContent(lessons, groups, children, tutors) {
 
         const group = groups.filter(g => g.groupId === lesson.groupId);
 
-        message += `<strong>Gruppe:</strong> ${group[0].name}<br><br>`;
-        message += '<strong>anwesende GruppenleiterInnen:</strong> ';
+        if (group[0] !== undefined) {
+            message += `<strong>Gruppe:</strong> ${group[0].name}<br><br>`;
+            message += '<strong>anwesende GruppenleiterInnen:</strong> ';
 
-        for (const tutor of lesson.tutors) {
-            for (const tutor2 of tutors) {
-                if (tutor === tutor2.tutorId) {
-                    selectedTutors.push(tutor2);
-                    message += tutor2.name;
-                    selectedTutors.length === lesson.tutors.length ? message += '<br><br>' : message += ', ';
+            for (const tutor of lesson.tutors) {
+                for (const tutor2 of tutors) {
+                    if (tutor === tutor2.tutorId && lesson.tutors !== undefined) {
+                        selectedTutors.push(tutor2);
+                        message += tutor2.name;
+                        selectedTutors.length === lesson.tutors.length ? message += '<br><br>' : message += ', ';
+                    }
                 }
             }
-        }
 
-        message += '<strong>anwesende Kinder:</strong> ';
+            message += '<strong>anwesende Kinder:</strong> ';
 
-        for (const child of lesson.children) {
-            for (const child2 of children) {
-                if (child === child2.childId) {
-                    selectedChildren.push(child2);
-                    message += `${child2.firstName} ${child2.lastName}`;
-                    selectedChildren.length === lesson.children.length ? message += '<br><br>' : message += ', ';
+            for (const child of lesson.children) {
+                for (const child2 of children) {
+                    if (child === child2.childId && lesson.children !== undefined) {
+                        selectedChildren.push(child2);
+                        message += child2.name;
+                        selectedChildren.length === lesson.children.length ? message += '<br><br>' : message += ', ';
+                    }
                 }
             }
-        }
 
-        message += '<br><br><br>'
+            message += '<br><br><br>'
+        }
     }
 
     return message;

@@ -12,6 +12,9 @@ class TutorRepository {
         fs.writeFile('./data/tutors.json', JSON.stringify(currentFile), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }
@@ -24,6 +27,9 @@ class TutorRepository {
         fs.writeFile('./data/tutors.json', JSON.stringify(tutors), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }
@@ -34,6 +40,9 @@ class TutorRepository {
         fs.writeFile('./data/tutors.json', JSON.stringify(currentFile.filter(r => r.tutorId !== tutor.tutorId)), err => {
             if (err) {
                 console.error(err);
+                return false;
+            } else {
+                return true;
             }
         });
     }

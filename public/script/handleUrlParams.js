@@ -1,11 +1,16 @@
 window.addEventListener('load', () => {
+    const socket = getSocket();
     const params = getUrlParams(window.location.href);
 
+    socket.on('cmd:reload', () => {
+        location.reload();
+    });
+
     if (params['groupId'] !== undefined) {
-        socket.emit('req:tutors', null);
-        socket.emit('req:children', params['groupId']);
+        socket.emit('req:tutors', 'lesson');
+        socket.emit('req:childrenByGroupId', params['groupId']);
         socket.emit('req:lessonByGroupId', params['groupId']);
     } else {
-        socket.emit('req:groups', null);
+        socket.emit('req:groups', 'group');
     }
 });

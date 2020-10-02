@@ -1,42 +1,64 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url(../font/Roboto-Regular.ttf) format('truetype');
+  font-family: 'Roboto';
+  src: url(../font/Roboto-Regular.ttf) format('truetype');
 }
 
 @font-face {
-  font-family: 'Roboto Bold';
-  src: url(../font/Roboto-Bold.ttf) format('truetype');
+font-family: 'Roboto Bold';
+src: url(../font/Roboto-Bold.ttf) format('truetype');
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    overflow: hidden scroll;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden scroll;
 }
 
 .hide {
-  display: none !important;
+display: none !important;
 }
 
 #contentWrapper {
-  width: 60%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+width: 60%;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+-webkit-box-align: start;
+    -ms-flex-align: start;
+        align-items: flex-start;
+-ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 @media screen and (max-aspect-ratio: 1/1) {
-  #contentWrapper {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
+#contentWrapper {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
 }

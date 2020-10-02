@@ -2,10 +2,10 @@ window.addEventListener('load', () => {
     const socket = getSocket();
     const parent = document.getElementById('contentWrapper');
 
-    socket.on('res:children', children => {
+    socket.on('res:childrenByGroupId', children => {
         const childrenWrapper = document.createElement('div');
 
-        children = children.sort((c1, c2) => c1.firstName.localeCompare(c2.firstName));
+        children = children.sort((c1, c2) => c1.name.localeCompare(c2.name));
 
         const headline = document.createElement('h2');
         headline.textContent = 'Kinder';
@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
             const newChild = document.createElement('div');
 
             const name = document.createElement('p');
-            name.textContent = `${child.firstName} ${child.lastName}`;
+            name.textContent = child.name;
 
             newChild.id = child.childId;
 
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
         printSaveButton();
     });
 
-    socket.on('res:tutors', tutors => {
+    socket.on('res:lesson-tutors', tutors => {
         const tutorWrapper = document.createElement('div');
 
         tutors = tutors.sort((t1, t2) => t1.name.localeCompare(t2.name));

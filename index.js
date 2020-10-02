@@ -48,6 +48,114 @@ io.on('connection', socket => {
     socket.on('req:children', async prefix => {
         socket.emit(`res:${prefix}-children`, await reqHandler.getChildren());
     });
+
+    socket.on('data:update-child', async child => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.updateChild(child);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
+
+    socket.on('data:update-tutor', async tutor => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.updateTutor(tutor);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
+
+    socket.on('data:update-group', async group => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.updateGroup(group);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
+
+    socket.on('data:add-child', async child => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.addChild(child);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
+
+    socket.on('data:add-tutor', async tutor => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.addTutor(tutor);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
+
+    socket.on('data:add-group', async group => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.addGroup(group);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
+
+    socket.on('data:delete-child', async child => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.deleteChild(child);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
+    
+    socket.on('data:delete-tutor', async tutor => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.deleteTutor(tutor);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
+
+    socket.on('data:delete-group', async group => {
+        let interval = setInterval(async () => {
+            if (!isLocked) {
+                isLocked = true;
+                await reqHandler.deleteGroup(group);
+                isLocked = false;
+                clearInterval(interval);
+                io.emit('cmd:reload', null);
+            }
+        }, 10);
+    });
 });
 
 schedule.scheduleJob('0 0 18 * * 5', async () => {

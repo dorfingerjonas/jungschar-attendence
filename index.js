@@ -22,8 +22,8 @@ io.on('connection', socket => {
         socket.emit(`res:${prefix}-groups`, await reqHandler.getGroups());
     });
 
-    socket.on('req:children', async groupId => {
-        socket.emit('res:children', await reqHandler.getChildrenByGroupId(groupId));
+    socket.on('req:childrenByGroupId', async groupId => {
+        socket.emit('res:childrenByGroupId', await reqHandler.getChildrenByGroupId(groupId));
     });
 
     socket.on('req:tutors', async prefix => {

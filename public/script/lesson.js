@@ -112,6 +112,8 @@ window.addEventListener('load', () => {
             const children = [];
             const tutors = [];
 
+            button.classList.add('animate');
+
             for (const child of document.querySelectorAll('.childrenWrapper .child')) {
                 if (!child.className.includes('absent')) {
                     children.push(parseInt(child.id));
@@ -129,7 +131,11 @@ window.addEventListener('load', () => {
                 groupId: parseInt(getUrlParams(window.location.href)['groupId']),
                 children,
                 tutors
-            }
+            };
+
+            setTimeout(() => {
+                button.classList.remove('animate');
+            }, 750);
 
             socket.emit('data:lesson', lesson);
         });

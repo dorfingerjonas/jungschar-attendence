@@ -1,10 +1,13 @@
 const nodeMailer = require('nodemailer');
-const credentials = require('../data/credentials.json');
+const { promisify } = require('util');
+const fs = require('fs');
 
 class EmailController {
     async sendEmail(lessons, groups, children, tutors) {
+        const credentials = JSON.parse(await promisify(fs.readFile)('./data/credentials.json', 'utf8'));
+        
         return nodeMailer.createTransport({
-            host: 'mail.gmx.com',
+            host: 'mail.gmx.net',
             port: 587,
             debug: true,
             secure: false,
@@ -13,8 +16,9 @@ class EmailController {
                 pass: credentials.password
             }
         }).sendMail({
-            from: 'jonas.dorfinger@gmx.at',
-            to: ['dorfingerjonas@gmx.at', 'jonas.dorfinger@gmx.at'],
+            from: 'dorfingerjonas@gmx.at',
+            to: JSON.parse(await promisify(fs.readFile)('./data/receiver.json', 'utf8')),
+            replyTo: 'jonas.dorfinger@gmx.at',
             subject: `Jungschar Anwesenheit - ${getCurrentDate()}`,
             html: createMessageContent(lessons, groups, children, tutors)
         });

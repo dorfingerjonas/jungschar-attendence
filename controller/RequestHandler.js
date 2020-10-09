@@ -68,7 +68,13 @@ class RequestHandler {
                 fs.copyFile('./data/lessons.json', `./backup/jungschar-attendence_${date}.json`, fs.constants.COPYFILE_FICLONE, () => {
                     lessonsRepo.deleteAll();
                 });
+
+                return true;
+            } else {
+                return false;
             }
+        } else {
+            return false;
         }
     }
 

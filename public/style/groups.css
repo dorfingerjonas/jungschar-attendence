@@ -46,18 +46,18 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: space-between;
+        -ms-flex-pack: space-between;
+            justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
 }
 
 .button {
-    width: 97%;
-    margin: 4vh 0;
-    padding: 2vh 2%;
+    width: 40%;
+    margin: 2vh 0;
+    padding: 1.5vh 1vw;
     color: #fff;
     background: #485b6e;
     border-radius: 7px;

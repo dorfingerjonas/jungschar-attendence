@@ -156,10 +156,14 @@ io.on('connection', socket => {
             }
         }, 10);
     });
+
+    socket.on('cmd:create-backup', async () => {
+        io.emit('res:create-backup', await reqHandler.createBackup());
+    });
 });
 
 schedule.scheduleJob('0 0 18 * * 5', async () => {
-    reqHandler.createBackup();
+    io.emit('res:create-backup', await reqHandler.createBackup());
 });
 
 http.listen(3000, () => {

@@ -162,7 +162,7 @@ io.on('connection', socket => {
     });
 });
 
-schedule.scheduleJob('0 0 18 * * 5', async () => {
+schedule.scheduleJob('0 0 19 * * 5', async () => {
     io.emit('res:create-backup', await reqHandler.createBackup());
 });
 

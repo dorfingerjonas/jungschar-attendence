@@ -43,12 +43,12 @@ function createMessageContent(lessons, groups, children, tutors) {
                     if (tutor === tutor2.tutorId && lesson.tutors !== undefined) {
                         selectedTutors.push(tutor2);
                         message += tutor2.name;
-                        selectedTutors.length === lesson.tutors.length ? message += '<br><br>' : message += ', ';
+                        selectedTutors.length !== lesson.tutors.length ? message += ', ' : '';
                     }
                 }
             }
 
-            message += '<strong>anwesende Kinder:</strong> ';
+            message += '<br><br> <strong>anwesende Kinder:</strong> ';
 
             for (const child of lesson.children) {
                 for (const child2 of children) {

@@ -53,10 +53,14 @@ class RequestHandler {
         const groups = await this.getGroups();
         const children = await this.getChildren();
         const tutors = await this.getTutors();
-        
-        const response = await emailController.sendEmail(lessons, groups, children, tutors) || {};
+
+        let response;
         const date = `${localtime.getFullYear()}-${('0' + (localtime.getMonth() + 1)).slice(-2)}-${('0' + localtime.getDate()).slice(-2)}`;
 
+        if (lessons.length !== 0) {
+            response = await emailController.sendEmail(lessons, groups, children, tutors) || {};
+        }
+        
         if (response !== undefined) {
             if (response.rejected.length === 0) {
                 try {

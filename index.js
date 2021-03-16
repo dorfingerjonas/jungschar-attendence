@@ -166,6 +166,6 @@ schedule.scheduleJob('0 0 19 * * 5', async () => {
     io.emit('res:create-backup', await reqHandler.createBackup());
 });
 
-http.listen(3000, () => {
-    console.log('http://localhost:3000/');
+http.listen(80, () => {
+    console.log('http://localhost:80/');
 });

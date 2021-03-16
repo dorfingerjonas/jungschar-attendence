@@ -5,20 +5,23 @@ const fs = require('fs');
 class EmailController {
     async sendEmail(lessons, groups, children, tutors) {
         const credentials = JSON.parse(await promisify(fs.readFile)('./data/credentials.json', 'utf8'));
-        
+
         return nodeMailer.createTransport({
-            host: 'mail.gmx.net',
+            host: 'smtp.world4you.com',
             port: 587,
-            debug: true,
+            debug: false,
             secure: false,
             auth: {
                 user: credentials.email,
                 pass: credentials.password
             }
         }).sendMail({
-            from: 'dorfingerjonas@gmx.at',
+            from: {
+                name: 'Jungschar Attendance',
+                address: 'jungschar.attendance@dorfingerjonas.at'
+            },
             to: JSON.parse(await promisify(fs.readFile)('./data/receiver.json', 'utf8')),
-            replyTo: 'jonas.dorfinger@gmx.at',
+            replyTo: 'contact@dorfingerjonas.at',
             subject: `Jungschar Anwesenheit - ${getCurrentDate()}`,
             html: createMessageContent(lessons, groups, children, tutors)
         });
@@ -60,7 +63,7 @@ function createMessageContent(lessons, groups, children, tutors) {
                 }
             }
 
-            message += '<br><br><br>'
+            message += '<br><br><br>';
         }
     }
 

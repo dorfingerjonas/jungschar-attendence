@@ -3,6 +3,12 @@ window.addEventListener('load', () => {
     const parent = document.getElementById('contentWrapper');
 
     socket.on('res:group-groups', groups => {
+        groups.push({
+            name: 'Großveranstaltung',
+            location: 'noch nicht bekannt',
+            groupId: 0
+        });
+
         for (const group of groups) {
             const newGroup = document.createElement('div');
             const name = document.createElement('div');

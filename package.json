@@ -4,7 +4,8 @@
   "description": "platform to manage attendence for weekly meetings due to covid-19 policies",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon node ."
+    "start": "node .",
+    "dev": "nodemon node ."
   },
   "repository": {
     "type": "git",

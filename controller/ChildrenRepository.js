@@ -62,7 +62,7 @@ class ChildrenRepository {
     async getChildrenByGroupId(groupId) {
         const children = await this.getAll();
 
-        return children.filter(r => r.groupId === parseInt(groupId));
+        return children.filter(r => r.groupId === parseInt(groupId) || parseInt(groupId) === 0);
     }
 }
 

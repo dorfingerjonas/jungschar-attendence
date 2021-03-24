@@ -33,6 +33,7 @@ window.addEventListener('load', () => {
             parent.appendChild(childrenWrapper);
         }
 
+        printNotesArea();
         printSaveButton();
     });
 
@@ -78,6 +79,7 @@ window.addEventListener('load', () => {
 
         const children = lesson[0].children;
         const tutors = lesson[0].tutors;
+        const notes = lesson[0].notes;
 
         for (const child of children) {
             const divs = document.getElementsByClassName('child');
@@ -98,7 +100,22 @@ window.addEventListener('load', () => {
                 }
             }
         }
+
+        document.querySelector('textarea').value = notes || '';
     });
+
+    function printNotesArea() {
+        const headline = document.createElement('h2');
+        headline.textContent = 'Annmerkungen (optional)';
+
+        parent.appendChild(headline);
+
+        const textarea = document.createElement('textarea');
+
+        textarea.placeholder = 'z.B. waren im Sparkassenpark';
+
+        parent.appendChild(textarea);
+    }
 
     function printSaveButton() {
         const button = document.createElement('div');
@@ -111,6 +128,7 @@ window.addEventListener('load', () => {
             const date = `${localtime.getFullYear()}-${('0' + (localtime.getMonth() + 1)).slice(-2)}-${('0' + localtime.getDate()).slice(-2)}`;
             const children = [];
             const tutors = [];
+            const notes = document.querySelector('textarea')?.value;
 
             button.classList.add('animate');
 
@@ -130,7 +148,8 @@ window.addEventListener('load', () => {
                 date,
                 groupId: parseInt(getUrlParams(window.location.href)['groupId']),
                 children,
-                tutors
+                tutors,
+                notes
             };
 
             setTimeout(() => {

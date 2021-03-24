@@ -58,6 +58,12 @@ class RequestHandler {
         const date = `${localtime.getFullYear()}-${('0' + (localtime.getMonth() + 1)).slice(-2)}-${('0' + localtime.getDate()).slice(-2)}`;
 
         if (lessons.length !== 0) {
+            groups.push({
+                name: 'Großveranstaltung',
+                location: 'noch nicht bekannt',
+                groupId: 0
+            });
+
             response = await emailController.sendEmail(lessons, groups, children, tutors) || {};
         }
         

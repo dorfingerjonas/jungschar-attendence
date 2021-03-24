@@ -8,8 +8,11 @@ textarea {
     outline: none;
     border: none;
     border-radius: 7px;
-    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    -webkit-box-shadow: 1px 1px 9px 0px #dbdbdb;
+            box-shadow: 1px 1px 9px 0px #dbdbdb;
     border-bottom: 5px solid transparent;
+    -webkit-transition: border-color 300ms ease-in-out, opacity 300ms ease-in-out;
+    -o-transition: border-color 300ms ease-in-out, opacity 300ms ease-in-out;
     transition: border-color 300ms ease-in-out, opacity 300ms ease-in-out;
 }
 

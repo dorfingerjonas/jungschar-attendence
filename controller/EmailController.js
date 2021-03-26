@@ -63,6 +63,10 @@ function createMessageContent(lessons, groups, children, tutors) {
                 }
             }
 
+            if (lesson.notes) {
+                message += `<strong>Annmerkungen:</strong> ${lesson.notes}`;
+            }
+
             message += '<br><br><br>';
         }
     }

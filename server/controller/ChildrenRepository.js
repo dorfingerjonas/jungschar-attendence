@@ -51,14 +51,6 @@ class ChildrenRepository {
         });
     }
 
-    deleteAll() {
-        fs.writeFile('./data/children.json', JSON.stringify([]), err => {
-            if (err) {
-                console.error(err);
-            }
-        });
-    }
-
     async getAll() {
         return JSON.parse(await promisify(fs.readFile)('./data/children.json', 'utf8'));
     }

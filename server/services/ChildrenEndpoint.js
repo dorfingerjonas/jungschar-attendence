@@ -34,7 +34,7 @@ app.post('/', async (req, res) => {
         res.sendStatus(400);
     } else {
         res.contentType('application/json');
-        res.send(await repo.add(req.body));
+        res.send(await repo.add(child));
     }
 });
 

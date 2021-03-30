@@ -24,7 +24,7 @@ class ChildrenRepository {
     async update(child) {
         const children = await this.getAll();
 
-        children[children.findIndex(r => r.childId === child.childId)] = child;
+        children[children.findIndex(r => r.id === child.id)] = child;
 
         fs.writeFile('./data/children.json', JSON.stringify(children), err => {
             if (err) {
@@ -36,10 +36,12 @@ class ChildrenRepository {
         });
     }
 
-    async delete(child) {
+    async delete(id) {
         const currentFile = await this.getAll();
 
-        fs.writeFile('./data/children.json', JSON.stringify(currentFile.filter(r => r.childId !== child.childId)), err => {
+        console.log(id);
+
+        fs.writeFile('./data/children.json', JSON.stringify(currentFile.filter(r => r.id !== parseInt(id))), err => {
             if (err) {
                 console.error(err);
                 return false;

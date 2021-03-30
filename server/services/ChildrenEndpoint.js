@@ -38,4 +38,25 @@ app.post('/', async (req, res) => {
     }
 });
 
+app.put('/:id', async (req, res) => {
+    const child = req.body;
+
+    child.id = parseInt(req.params?.id);
+    child.groupId = parseInt(child.groupId);
+
+    if (isNaN(child.id)) {
+        res.contentType('application/json');
+        res.send([]);
+    } else if (
+        !child.name
+        || !child.groupId
+        || isNaN(child.groupId)
+    ) {
+        res.sendStatus(400);
+    } else {
+        res.contentType('application/json');
+        res.send(await repo.update(child));
+    }
+});
+
 module.exports = app;

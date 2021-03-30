@@ -1,0 +1,19 @@
+{
+  "name": "jungschar-attendence - server",
+  "version": "1.0.0",
+  "description": "platform to manage attendence for weekly meetings due to covid-19 policies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dorfingerjonas/jungschar-attendence.git"
+  },
+  "author": "Jonas Dorfinger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dorfingerjonas/jungschar-attendence/issues"
+  },
+  "homepage": "https://github.com/dorfingerjonas/jungschar-attendence#readme"
+}

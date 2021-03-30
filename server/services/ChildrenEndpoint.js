@@ -59,4 +59,10 @@ app.put('/:id', async (req, res) => {
     }
 });
 
+app.delete('/:id', async (req, res) => {
+    res.contentType('application/json');
+    console.log(req.params?.id);
+    res.send(await repo.delete(req.params?.id));
+});
+
 module.exports = app;

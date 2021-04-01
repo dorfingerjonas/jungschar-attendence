@@ -17,5 +17,5 @@ app.get('/', (req, res) => {
 app.use('/children', endpoints.childrenEP);
 
 app.listen(config.port, () => {
-    console.log(`listening to http://locaholst:${config.port}`);
+    console.log(`listening to http://localhost:${config.port}`);
 });

@@ -22,19 +22,18 @@ app.get('/:id', async (req, res) => {
 app.post('/', async (req, res) => {
     const child = req.body;
 
-    child.id = parseInt(child.id);
     child.groupId = parseInt(child.groupId);
 
     if (
         !child.name
         || !child.groupId
-        || isNaN(child.id)
         || isNaN(child.groupId)
     ) {
         res.sendStatus(400);
     } else {
         res.contentType('application/json');
-        res.send(await repo.add(child));
+        const response = await repo.add(child);
+        res.send(response);
     }
 });
 
@@ -61,7 +60,6 @@ app.put('/:id', async (req, res) => {
 
 app.delete('/:id', async (req, res) => {
     res.contentType('application/json');
-    console.log(req.params?.id);
     res.send(await repo.delete(req.params?.id));
 });
 

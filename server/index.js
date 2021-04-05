@@ -4,7 +4,8 @@ const app = express();
 const endpoints = {
     childrenEP: require('./services/ChildrenEndpoint'),
     roomEP: require('./services/RoomEndpoint'),
-    groupEP: require('./services/GroupEndpoint')
+    groupEP: require('./services/GroupEndpoint'),
+    tutorEP: require('./services/TutorEndpoint')
 };
 
 const config = {
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 app.use('/children', endpoints.childrenEP);
 app.use('/rooms', endpoints.roomEP);
 app.use('/groups', endpoints.groupEP);
+app.use('/tutors', endpoints.tutorEP);
 
 app.listen(config.port, () => {
     console.log(`listening to http://localhost:${config.port}`);

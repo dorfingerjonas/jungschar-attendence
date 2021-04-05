@@ -1,0 +1,22 @@
+{
+  "name": "jungschar-attendence",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dorfingerjonas/jungschar-attendence.git"
+  },
+  "author": "Jonas Dorfinger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dorfingerjonas/jungschar-attendence/issues"
+  },
+  "homepage": "https://github.com/dorfingerjonas/jungschar-attendence#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

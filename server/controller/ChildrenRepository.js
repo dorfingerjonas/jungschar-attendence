@@ -64,7 +64,7 @@ class ChildrenRepository {
     async findById(id) {
         const children = await this.getAll();
 
-        return children.filter(c => c.id === parseInt(id));
+        return children.filter(c => c.id === parseInt(id))[0] ||{};
     }
 }
 

@@ -70,7 +70,7 @@ class RoomRepository {
     async findById(id) {
         const rooms = await this.getAll();
 
-        return rooms.filter(c => c.id === parseInt(id));
+        return rooms.filter(c => c.id === parseInt(id))[0] || {};
     }
 }
 

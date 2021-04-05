@@ -33,29 +33,23 @@ app.post('/', async (req, res) => {
 });
 
 app.put('/:id', async (req, res) => {
-    const child = req.body;
+    const room = req.body;
 
-    child.id = parseInt(req.params?.id);
-    child.groupId = parseInt(child.groupId);
+    room.id = parseInt(req.params?.id);
 
-    if (isNaN(child.id)) {
+    if (isNaN(room.id)) {
         res.contentType('application/json');
         res.send([]);
-    } else if (
-        !child.name
-        || !child.groupId
-        || isNaN(child.groupId)
-    ) {
+    } else if (!room.name) {
         res.sendStatus(400);
     } else {
         res.contentType('application/json');
-        res.send(await repo.update(child));
+        res.send(await repo.update(room));
     }
 });
 
 app.delete('/:id', async (req, res) => {
     res.contentType('application/json');
-    console.log(req.params?.id);
     res.send(await repo.delete(req.params?.id));
 });
 

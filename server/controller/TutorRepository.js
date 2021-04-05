@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { promisify } = require('util');
 
-const FILE_PATH = './data/tutors.json';
+const FILE_PATH = './server/data/tutors.json';
 
 class TutorRepository {
     async add(tutor) {

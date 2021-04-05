@@ -24,6 +24,8 @@ app.use('/groups', endpoints.groupEP);
 app.use('/tutors', endpoints.tutorEP);
 app.use('/lessons', endpoints.lessonEP);
 
-app.listen(config.port, () => {
-    console.log(`listening to http://localhost:${config.port}`);
-});
+// app.listen(config.port, () => {
+//     console.log(`listening to http://localhost:${config.port}`);
+// });
+
+module.exports = app;

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { promisify } = require('util');
 
-const FILE_PATH = './data/groups.json';
+const FILE_PATH = './server/data/groups.json';
 
 class GroupRepository {
     async add(group) {

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { promisify } = require('util');
 
-const FILE_PATH = './data/children.json';
+const FILE_PATH = './server/data/children.json';
 
 class ChildrenRepository {
     async add(child) {

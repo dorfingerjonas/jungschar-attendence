@@ -6,17 +6,39 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const ChildrenRepository = require('../controller/ChildrenRepository');
+const GroupRepository = require('../controller/GroupRepository');
 
 const repo = new ChildrenRepository();
+const groupRepo = new GroupRepository();
 
 app.get('/', async (req, res) => {
+    const children = await repo.getAll();
+    
+    for (let i = 0; i < children.length; i++) {
+        children[i].group = await groupRepo.findById(children[i].group);
+    }
+
     res.contentType('application/json');
-    res.send(await repo.getAll());
+    res.send(children);
 });
 
-app.get('/:id', async (req, res) => {
+app.get('/:id', async (req, res) => {    
+    const child = await repo.findById(req.params?.id);
+    child.group = await groupRepo.findById(child.group);
+    
     res.contentType('application/json');
-    res.send(await repo.findById(req.params?.id));
+    res.send(child);
+});
+
+app.get('/byGroup/:id', async (req, res) => {
+    const children = (await repo.getAll()).filter(c => c.group === parseInt(req.params?.id));
+    
+    for (let i = 0; i < children.length; i++) {
+        children[i].group = await groupRepo.findById(children[i].group);
+    }
+    
+    res.contentType('application/json');
+    res.send(children);
 });
 
 app.post('/', async (req, res) => {

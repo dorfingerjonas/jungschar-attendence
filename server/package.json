@@ -1,10 +1,12 @@
 {
-  "name": "jungschar-attendence",
+  "name": "jungschar-attendence-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "platform to manage attendence for weekly meetings due to covid-19 policies",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,9 @@
   },
   "homepage": "https://github.com/dorfingerjonas/jungschar-attendence#readme",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-schedule": "^2.0.0",
+    "nodemailer": "^6.5.0",
+    "nodemon": "^2.0.7"
   }
 }

@@ -1,0 +1,19 @@
+<h2>Kind hinzufügen</h2>
+
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input type="text" matInput autocomplete="off" [formControl]="nameControl" [(ngModel)]="name">
+  <mat-error *ngIf="nameControl.hasError('required')">Name ist erforderlich</mat-error>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Gruppe</mat-label>
+  <mat-select [(value)]="group" [formControl]="groupControl">
+    <mat-option *ngFor="let g of groups" [value]="g">{{ g.name }}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="groupControl.hasError('required')">Gruppe ist erforderlich</mat-error>
+</mat-form-field>
+
+<button mat-raised-button color="primary" type="button" (click)="save()"
+        [disabled]="nameControl.hasError('required') || groupControl.hasError('required')">Speichern
+</button>

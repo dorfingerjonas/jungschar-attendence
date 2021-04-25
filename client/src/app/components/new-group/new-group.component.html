@@ -1,0 +1,19 @@
+<h2>Gruppe erstellen</h2>
+
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input type="text" matInput [(ngModel)]="name" [formControl]="nameControl">
+  <mat-error *ngIf="nameControl.hasError('required')">Name ist erforderlich</mat-error>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Raum</mat-label>
+  <mat-select [(value)]="room" [formControl]="roomControl">
+    <mat-option *ngFor="let r of rooms" [value]="r">{{ r.name }}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="roomControl.hasError('required')">Raum ist erforderlich</mat-error>
+</mat-form-field>
+
+<button type="button" mat-raised-button color="primary" (click)="save()"
+        [disabled]="nameControl.hasError('required') || roomControl.hasError('required')">Speichern
+</button>

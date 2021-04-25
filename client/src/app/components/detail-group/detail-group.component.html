@@ -1,0 +1,51 @@
+<div class="content-wrapper">
+  <div class="content" *ngIf="group">
+    <mat-form-field [formGroup]="formGroup">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput [(ngModel)]="group!.name" formControlName="name">
+
+      <mat-error>Name ist erforderlich</mat-error>
+    </mat-form-field>
+
+    <mat-form-field [formGroup]="formGroup">
+      <mat-label>Raum</mat-label>
+      <mat-select [(ngModel)]="group.room.id" formControlName="room">
+        <mat-option *ngFor="let room of rooms" [value]="room.id">
+          {{ room.name }}
+        </mat-option>
+      </mat-select>
+
+      <mat-error>Gruppe ist erforderlich</mat-error>
+    </mat-form-field>
+
+    <button type="button" mat-raised-button color="primary" (click)="saveGroup(group)"
+            [disabled]="!formGroup.valid">Speichern
+    </button>
+  </div>
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let child of children">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ child.name }}</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="childContent">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input type="text" matInput [(ngModel)]="child.name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Gruppe</mat-label>
+          <mat-select [(ngModel)]="child.group.id">
+            <mat-option *ngFor="let group of groups" [value]="group.id">
+              {{ group.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button type="button" mat-raised-button color="primary" (click)="saveChild(child)">Speichern</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

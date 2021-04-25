@@ -1,0 +1,46 @@
+:host {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 30px;
+  border-radius: 7px;
+  border-bottom: 5px solid transparent;
+  box-shadow: var(--box-shadow);
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  transition: border-bottom-color 300ms ease-in-out;
+
+  &:hover {
+    border-bottom-color: #fcd04b;
+  }
+
+  p {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    mat-icon {
+      padding: 5px;
+    }
+
+    &:nth-child(1) mat-icon {
+      color: #1b3647;
+    }
+
+    &:nth-child(2) mat-icon {
+      color: #dc5656;
+    }
+  }
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+  :host {
+    width: 100%;
+    margin: 1em 0;
+  }
+}
+

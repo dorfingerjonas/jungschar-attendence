@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
-app.use('/api', require('./server/index'));
+app.use(cors());
 app.use(express.static(__dirname + '/client/dist/client/'));
+app.use('/api', require('./server/index'));
 
 app.get('/', (req, res) => {
     res.type('html')

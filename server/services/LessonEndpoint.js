@@ -38,10 +38,10 @@ app.get('/:id', async (req, res) => {
 app.post('/', async (req, res) => {
     const lesson = req.body;
 
-    lesson.group = parseInt(lesson.group);
-    lesson.room = parseInt(lesson.room);
-    lesson.tutors = JSON.parse(lesson.tutors);
-    lesson.children = JSON.parse(lesson.children);
+    // lesson.group = parseInt(lesson.group);
+    // lesson.room = parseInt(lesson.room);
+    // lesson.tutors = JSON.parse(lesson.tutors);
+    // lesson.children = JSON.parse(lesson.children);
 
     if (isNaN(lesson.room) || isNaN(lesson.room) || !lesson.tutors || !lesson.children) {
         res.sendStatus(400);

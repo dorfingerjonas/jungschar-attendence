@@ -44,6 +44,17 @@ class LessonRepository {
 
         return lessons.filter(c => c.id === parseInt(id))[0] ||{};
     }
+
+    deleteAll() {
+        fs.writeFile(FILE_PATH, JSON.stringify([]), err => {
+            if (err) {
+                console.error(err);
+                return false;
+            } else {
+                return true;
+            }
+        });
+    }
 }
 
 module.exports = LessonRepository;

@@ -20,6 +20,8 @@
   "homepage": "https://github.com/dorfingerjonas/jungschar-attendence#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "node-schedule": "^2.0.0",
+    "nodemailer": "^6.5.0",
     "nodemon": "^2.0.7"
   }
 }

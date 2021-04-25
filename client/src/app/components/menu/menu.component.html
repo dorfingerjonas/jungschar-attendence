@@ -1,0 +1,39 @@
+<button id="addBtn" mat-fab color='accent' [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>add</mat-icon>
+</button>
+
+<button id="backBtn" mat-fab color='accent' (click)="back()">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu" xPosition="before" yPosition="above">
+  <button mat-menu-item routerLink="/child/new">
+    <mat-icon>face</mat-icon>
+    <span>Kind</span>
+  </button>
+
+  <button mat-menu-item routerLink="/tutor/new">
+    <mat-icon>person</mat-icon>
+    <span>LeiterIn</span>
+  </button>
+
+  <button mat-menu-item routerLink="/room/new">
+    <mat-icon>home</mat-icon>
+    <span>Raum</span>
+  </button>
+
+  <button mat-menu-item routerLink="/group/new">
+    <mat-icon>door_sliding</mat-icon>
+    <span>Gruppe</span>
+  </button>
+
+  <button mat-menu-item routerLink="/lesson/new">
+    <mat-icon>group</mat-icon>
+    <span>Gruppenstunde</span>
+  </button>
+
+  <button mat-menu-item routerLink="/bigevent/new" disabled>
+    <mat-icon>groups</mat-icon>
+    <span>Großveranstaltung</span>
+  </button>
+</mat-menu>

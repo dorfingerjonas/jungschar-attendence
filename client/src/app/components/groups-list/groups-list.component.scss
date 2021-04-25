@@ -1,0 +1,13 @@
+:host {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+  :host {
+    flex-direction: column;
+  }
+}

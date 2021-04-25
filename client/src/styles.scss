@@ -3,6 +3,10 @@
   src: url('/assets/fonts/Roboto.ttf') format('ttf')
 }
 
+:root {
+  --box-shadow: 1px 1px 9px 0 #dbdbdb;
+}
+
 body {
   width: 100vw;
   min-height: 100vh;
@@ -10,3 +14,6 @@ body {
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

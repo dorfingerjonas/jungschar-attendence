@@ -1,0 +1,18 @@
+:host {
+  text-align: center;
+
+  mat-form-field, button {
+    margin: 0 3vw;
+  }
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+  :host {
+    display: flex;
+    flex-direction: column;
+  }
+
+  mat-form-field, button {
+    width: 100%
+  }
+}

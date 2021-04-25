@@ -1,1 +1,1 @@
-<p>groups-list works!</p>
+<app-group *ngFor="let group of groups" [routerLink]="'/group/' + group.id" [group]="group"></app-group>

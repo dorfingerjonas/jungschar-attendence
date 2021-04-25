@@ -44,12 +44,12 @@ app.get('/byGroup/:id', async (req, res) => {
 app.post('/', async (req, res) => {
     const child = req.body;
 
-    child.groupId = parseInt(child.groupId);
+    child.group = parseInt(child.group);
 
     if (
         !child.name
-        || !child.groupId
-        || isNaN(child.groupId)
+        || !child.group
+        || isNaN(child.group)
     ) {
         res.sendStatus(400);
     } else {
@@ -63,15 +63,15 @@ app.put('/:id', async (req, res) => {
     const child = req.body;
 
     child.id = parseInt(req.params?.id);
-    child.groupId = parseInt(child.groupId);
+    child.group = parseInt(child.group);
 
     if (isNaN(child.id)) {
         res.contentType('application/json');
         res.send([]);
     } else if (
         !child.name
-        || !child.groupId
-        || isNaN(child.groupId)
+        || !child.group
+        || isNaN(child.group)
     ) {
         res.sendStatus(400);
     } else {

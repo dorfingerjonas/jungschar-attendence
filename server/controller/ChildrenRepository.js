@@ -10,7 +10,13 @@ class ChildrenRepository {
         child.id = parseInt(child.id);
 
         if (!child.id || isNaN(child.id)) {
-            child.id = Date.now();
+            let id = currentFile.length + 1;
+
+            while (currentFile.filter(g => g.id === id).length > 0) {
+                id++;
+            }
+
+            child.id = id;
         }
 
         if (currentFile.filter(c => c.id === child.id).length > 0) {

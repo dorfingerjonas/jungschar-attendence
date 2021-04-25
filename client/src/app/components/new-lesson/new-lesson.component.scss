@@ -1,0 +1,62 @@
+:host {
+  margin-bottom: 5vh;
+}
+
+mat-form-field {
+  width: 15%;
+  margin: 0 4vw 0 0;
+}
+
+#notes {
+  width: 25%;
+}
+
+.content {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+
+  .child, .tutor {
+    width: 15%;
+    margin: 2vh 2vw;
+    padding: 3vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    border-bottom: 5px solid transparent;
+    border-bottom-color: #03a87c;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    outline: none;
+    transition: border-bottom-color 200ms ease-in-out, opacity 200ms ease-in-out;
+  }
+
+  .absent {
+    border-bottom-color: #db3232;
+    opacity: .5;
+  }
+}
+
+#saveBtn {
+  position: fixed;
+  bottom: 13.5vh;
+  right: 2vw;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+  :host {
+    display: flex;
+    flex-direction: column;
+  }
+
+  mat-form-field, #notes {
+    width: 100%
+  }
+
+  .content {
+    .child, .tutor {
+      width: 45%;
+    }
+  }
+}

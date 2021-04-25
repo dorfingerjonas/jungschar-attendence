@@ -1,0 +1,51 @@
+<button id="saveBtn" mat-fab color='accent' (click)="save()"
+        [disabled]="roomControl.hasError('required') || groupControl.hasError('required')">
+  <mat-icon>save</mat-icon>
+</button>
+
+<mat-form-field>
+  <mat-label>Gruppe</mat-label>
+  <mat-select (selectionChange)="groupSelectionChanged()" [(value)]="selectedGroup" [formControl]="groupControl">
+    <mat-option *ngFor="let g of groups" [value]="g"> {{ g.name }}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="groupControl.hasError('required')">Gruppe ist erforderlich</mat-error>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Räumlichkeiten</mat-label>
+  <mat-select [(value)]="selectedRoom" [formControl]="roomControl">
+    <mat-option *ngFor="let r of rooms" [value]="r">{{ r.name }}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="roomControl.hasError('required')">Räumlichkeit ist erforderlich</mat-error>
+</mat-form-field>
+
+<mat-form-field id="notes">
+  <mat-label>Anmerkungen (optional)</mat-label>
+  <input matInput [(ngModel)]="note" autocomplete="off">
+</mat-form-field>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Kinder ({{ children.length }})</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="content">
+      <mat-error *ngIf="children.length === 0">Keine Kinder verfügbar!</mat-error>
+      <div class="child" *ngFor="let child of children" (click)="changeAbsentSate(child)"
+           [class.absent]="child.absent">{{ child.name }}</div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>LeiterInnen ({{tutors.length}})</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="content">
+      <mat-error *ngIf="tutors.length === 0">Keine LeiterInnen verfügbar!</mat-error>
+      <div class="tutor" *ngFor="let tutor of tutors" (click)="changeAbsentSate(tutor)"
+           [class.absent]="tutor.absent">{{ tutor.name }}</div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
